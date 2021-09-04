@@ -29,18 +29,18 @@ while True:
             flying=False
             print("Drone Landed")
         elif 'left' in decoded_bytes and flying:
-            tello.move_left(10)
+            tello.move_down(40)
             print("Moved Left")
         elif 'right' in decoded_bytes and flying:
-            tello.move_right(10)
+            tello.move_up(40)
             print("Moved Right")
         elif 'front' in decoded_bytes and flying:
-            tello.move_forward(10)
+            tello.move_right(50)
             print("Moved Front")
         elif 'back' in decoded_bytes and flying:
-            tello.move_back(10)
+            tello.move_left(50)
             print("Moved Back")
-        if time.time()-start>30:
+        if time.time()-start>60:
             tello.land()
             flying=False
             print("Landing Drone")

@@ -2,7 +2,7 @@ from djitellopy import Tello
 import time
 import serial
 
-ser = serial.Serial('/dev/cu.usbmodem142401')
+ser = serial.Serial('/dev/cu.usbmodem141401')
 ser_bytes = ser.readline()
 ser.flushInput()
 
@@ -33,7 +33,7 @@ while True:
         elif 'RIGHT' in decoded_bytes and flying:
             tello.move_right(50)
             print('Moved Right')
-        if time.time()-start>20:
+        if time.time()-start>30:
             tello.land()
             print('Landing Done')
             flying=False
